@@ -5,10 +5,11 @@ var observer = new window.WebKitMutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
         if(mutation.target.textContent != ignore){
 
-          title = mutation.target.textContent
-        
+          title = mutation.target.textContent.split("-")[0] // takes the tab title, splits it into two strings given the '-' char and then takes the left side
 
-          //Split up the name into readable text
+          
+
+          
           
         }
         
