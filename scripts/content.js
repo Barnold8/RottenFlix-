@@ -1,10 +1,19 @@
-var ignore = "Home - Netflix"
+var ignoreList = [
+  "Home - Netflix",
+  "Series - Netflix",
+  "Netflix",
+  "Account profiles - Netflix",
+  "Account Settings - Netflix",
+  "Account membership - Netflix",
+  "Account security - Netflix",
+  "Account devices - Netflix",
+  "Account profiles - Netflix",
+  "Viewing Restrictions - Account - Netflix",
+]
+
 var target = document.querySelector('head > title');
 var precursor = "https://www.omdbapi.com/?t="
 var API_KEY = "Please add your API key" 
-
-
-
 
 async function getData(URL) {
   
@@ -33,13 +42,13 @@ document.getElementById("main")
 
 var observer = new window.WebKitMutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
-        if(mutation.target.textContent != ignore){
-
+        if(!(ignoreList.includes(mutation.target.textContent))){
+       
           title = mutation.target.textContent.split("-")[0] // takes the tab title, splits it into two strings given the '-' char and then takes the left side
 
           var request = precursor + title + "&apikey=" + API_KEY
 
-          getData(request)
+          // getData(request)
 
           var panels = document.getElementsByClassName("detail-modal-container")
           var subPanel = panels[0].children[1] // Get main view modal and then find subsection under the description. 
