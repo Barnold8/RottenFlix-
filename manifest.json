@@ -7,7 +7,8 @@
         {
           "matches": ["https://www.netflix.com/*"],
           "css": [ "css/RottenFlix.css" ],
-          "js": ["scripts/content.js"]
+          "js": ["scripts/content.js"],
+          "web_accessible_resources": ["assets/RT.png"]
         }
       ]
   }

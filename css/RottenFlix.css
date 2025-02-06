@@ -1,12 +1,21 @@
 .RottenFlix{
     background-color: #181818;
     width: 100%;
+    margin-left: 10%;
 }
 
 .ContentContainer{
+
     width: 33%;
     height: 10%;
     float: left;
 
+}
+
+img{
+
+    width:25px;
+    margin-left: 5px;
+    height:auto;
 }
 

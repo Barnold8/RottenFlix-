@@ -30,13 +30,20 @@ async function getData(URL) {
   }
 }
 
-function makeContent(image,score){
-
+function makeContent(image, score) {
   var content = document.createElement("div");
-  content.className = "ContentContainer"
+  content.className = "ContentContainer";
 
-  content.innerText = `${score}%`
-  return content
+  var img = document.createElement("img");
+  img.src = image;
+
+  var scoreText = document.createElement("div");
+  scoreText.innerText = `${score}%`;
+
+  content.appendChild(img);
+  content.appendChild(scoreText);
+
+  return content;
 }
 
 
@@ -47,17 +54,25 @@ function makeRottenFlixContent(RottenScore,ImdbScore,MetaScore){
   //  IMDB
   //  Metacritic
 
-
   var ratingPanel = document.createElement("div");
   ratingPanel.className = "RottenFlix"
 
-  var RottenTomatoesContainer = makeContent("",10)
-  var ImdbContainer = makeContent("",10)
-  var MetacriticContainer = makeContent("",10)
+  var RottenTomatoesContainer = makeContent("https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png",10)
+  var ImdbContainer = makeContent("https://files.softicons.com/download/social-media-icons/flat-gradient-social-icons-by-guilherme-lima/png/256x256/IMDb.png",10)
+  var MetacriticContainer = makeContent("https://upload.wikimedia.org/wikipedia/commons/f/f2/Metacritic_M.png",10)
   
+
+  ratingPanel.appendChild(document.createElement("br"))
+  ratingPanel.appendChild(document.createElement("br"))
+  ratingPanel.appendChild(document.createElement("br"))
   ratingPanel.appendChild(RottenTomatoesContainer)
   ratingPanel.appendChild(ImdbContainer)
   ratingPanel.appendChild(MetacriticContainer)
+  ratingPanel.appendChild(document.createElement("br"))
+  ratingPanel.appendChild(document.createElement("br"))
+  ratingPanel.appendChild(document.createElement("br"))
+
+
 
 
   return ratingPanel
