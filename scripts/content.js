@@ -15,7 +15,9 @@ var target = document.querySelector('head > title');
 var precursor = "https://www.omdbapi.com/?t="
 var API_KEY = "Please add your API key" 
 
-async function getData(URL) {
+
+
+async function getData(URL) { // general function to make GET request and return JSON response if successful
   
   try {
     const response = await fetch(URL);
@@ -27,7 +29,7 @@ async function getData(URL) {
     return json
     
   } catch (error) {
-    console.error(error.message);
+    throw new Error(`Error: ${error}`);
   }
 }
 
