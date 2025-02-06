@@ -30,15 +30,38 @@ async function getData(URL) {
   }
 }
 
-var div = document.createElement("div");
-div.style.width = "100px";
-div.style.height = "100px";
-div.style.background = "red";
-div.style.color = "white";
-div.innerHTML = "Hello";
+function makeContent(image,score){
 
-document.getElementById("main")
+  var content = document.createElement("div");
+  content.className = "ContentContainer"
 
+  content.innerText = `${score}%`
+  return content
+}
+
+
+function makeRottenFlixContent(RottenScore,ImdbScore,MetaScore){
+
+  // Elements to account for
+  //  Rotten tomatoes
+  //  IMDB
+  //  Metacritic
+
+
+  var ratingPanel = document.createElement("div");
+  ratingPanel.className = "RottenFlix"
+
+  var RottenTomatoesContainer = makeContent("",10)
+  var ImdbContainer = makeContent("",10)
+  var MetacriticContainer = makeContent("",10)
+  
+  ratingPanel.appendChild(RottenTomatoesContainer)
+  ratingPanel.appendChild(ImdbContainer)
+  ratingPanel.appendChild(MetacriticContainer)
+
+
+  return ratingPanel
+}
 
 var observer = new window.WebKitMutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
@@ -53,7 +76,7 @@ var observer = new window.WebKitMutationObserver(function(mutations) {
           var panels = document.getElementsByClassName("detail-modal-container")
           var subPanel = panels[0].children[1] // Get main view modal and then find subsection under the description. 
           var insertLocation = subPanel.getElementsByClassName("ptrack-content")
-          subPanel.insertBefore(div,insertLocation[0])   
+          subPanel.insertBefore(makeRottenFlixContent(0,0,0),insertLocation[0])   
 
           
         }
