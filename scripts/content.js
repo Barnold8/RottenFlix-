@@ -17,6 +17,7 @@ var API_KEY = "Please add your API key"
 
 
 
+
 async function getData(URL) { // general function to make GET request and return JSON response if successful
   
   try {
@@ -39,6 +40,7 @@ function makeContent(image, score) {
 
   var img = document.createElement("img");
   img.src = image;
+  img.className = "img"
 
   var scoreText = document.createElement("div");
   scoreText.innerText = `${score}%`;
